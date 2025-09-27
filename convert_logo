@@ -1,0 +1,23 @@
+from PIL import Image
+import os
+
+image_path = "image.png"
+
+with open(image_path, "rb") as image_file:
+    img_bytes = image_file.read()
+
+num_bytes = len(img_bytes)
+
+output_file = "image_bytes.txt"
+
+with open(output_file, "w") as f:
+    f.write(f"inline unsigned char _Image[{num_bytes}] = {{\n")
+
+    for i in range(0, num_bytes, 10):
+        line = ', '.join([f"0x{byte:02X}" for byte in img_bytes[i:i+10]])
+        f.write(f"    {line},\n")
+
+    f.write("};\n")
+
+print(f"The code has been saved in '{output_file}'.")
+print(f"Total bytes: {num_bytes}")
