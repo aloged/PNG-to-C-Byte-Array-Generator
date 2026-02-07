@@ -77,10 +77,10 @@ Make sure your PNG image is ready for conversion. The program works with **non-c
 2. Run the script by executing the following command:
 
    ```bash
-   python png_to_byte_array.py path_to_your_image.png
+   python convert_logo image.png
    ```
 
-   Replace `path_to_your_image.png` with the actual path to your PNG image.
+   Change the name of your image to image
 
 ### Step 3: Check the Output
 
